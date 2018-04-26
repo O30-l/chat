@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home.login');
 });
 
 //注册页面
@@ -29,7 +29,13 @@ Route::post('/register/verification','RegisterController@verification');
 
 Route::post('/register/create','RegisterController@create');
 
+
+
 //查看session
 Route::get('/looksession',function(){
     dump($_SESSION);
+});
+
+Route::get('/logout',function(){
+    unset($_SESSION['user']);
 });

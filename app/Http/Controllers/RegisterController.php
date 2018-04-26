@@ -14,7 +14,7 @@ class RegisterController extends Controller
         if(Auth::check()){
             return back();
         }else{
-            return view('register');
+            return view('home.register');
         }
 
     }
@@ -24,7 +24,7 @@ class RegisterController extends Controller
         if(!User::where('email',$request -> to) -> count()){
             $code = create_code();
 
-            $bool = Mail::send('register_email',['app_name'=>config('app.name'),'code'=>$code],function($message) use ($request){
+            $bool = Mail::send('email.register',['app_name'=>config('app.name'),'code'=>$code],function($message) use ($request){
                 $message -> to($request -> to)->subject('注册验证');
             });
             //存储到session里

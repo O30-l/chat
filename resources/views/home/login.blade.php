@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>{{config('app.name')}} - login</title>
 
-        @include('cssjs')
+        @include('layout.cssjs')
         <style media="screen">
         .form{
             background: rgba(255,255,255,0.2);width:400px;margin:100px auto;
@@ -67,6 +67,6 @@
                 </form>
             </div>
         </div>
-        @include('bird')
+        @include('layout.bird')
     </body>
 </html>

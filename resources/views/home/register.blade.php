@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title></title>
-        @include('cssjs');
+        @include('layout.cssjs');
         <style media="screen">
             .form{
                 background: rgba(255,255,255,0.2);width:400px;margin:100px auto;
@@ -229,5 +229,6 @@
             });
         });
         </script>
+        @include('layout.bird');
     </body>
 </html>
