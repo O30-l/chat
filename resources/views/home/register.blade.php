@@ -99,6 +99,8 @@
 
             $("#send").click(function(){
                 $(this).html('<i class="fas fa-spinner fa-pulse"></i>');
+                $(this).attr('disabled',true);
+                $('#select_mode').attr('disabled',true);
                 var to = $(this).parent().prev().val();
                 if(to==''){
                     var error = '邮箱不能为空';
@@ -106,15 +108,18 @@
                         error='手机号不能为空';
                     }
                     swal("OMG!",error, "error");
-                    $(this).html('send');
+                    $(this).html('send').attr('disabled',false);
+                    $('#select_mode').attr('disabled',false);
                     return;
                 }else if(!to.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/) && mode =='email'){
                     swal("OMG!",'请检查邮箱格式', "error");
-                    $(this).html('send');
+                    $(this).html('send').attr('disabled',false);
+                    $('#select_mode').attr('disabled',false);
                     return;
                 }else if(to.length!=11 && mode == 'mobile'){
                     swal("OMG!",'请检查手机号', "error");
-                    $(this).html('send');
+                    $(this).html('send').attr('disabled',false);
+                    $('#select_mode').attr('disabled',false);
                     return;
                 }
                 var url = '{{url("/register/sendEmail")}}';
@@ -135,7 +140,8 @@
                         console.log(r);
                         if(r.state){
                             swal("OK!", r.info, "success");
-                            $(this).attr('disabled',true).html('60');
+                            $('#select_mode').attr('disabled',false);
+                            $(this).html('60');
                             if(mode=='email'){
                                 email_time=60;
                             }else{
@@ -158,7 +164,7 @@
                             },1000);
                         }else{
                             swal("OMG!", r.info, "error");
-                            $(this).html('send');
+                            $(this).html('send').attr('disabled',false);
                         }
                     },
                     error:(r)=>{

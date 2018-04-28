@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MyClass\Ucpaas;
 use App\MyClass\Auth;
@@ -109,7 +109,7 @@ class RegisterController extends Controller
 
         $r = User::create(array_merge(['account'=>$this -> createAccount($accounts)],$request->toArray()));
         if($r){
-            $_SESSION['user'] = $r -> toArray();
+            LoginController::login($r -> toArray());
             return redirect('/');
         }else{
             return back();

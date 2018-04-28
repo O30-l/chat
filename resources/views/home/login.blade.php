@@ -26,7 +26,7 @@
         <div class="container">
             <div class="form row">
                 <!-- <button id='button'>1</button> -->
-                <form class="bs-example bs-example-form" role="form" action='{{url("/login")}}' method="post" id='login_form'>
+                <form class="bs-example bs-example-form" role="form" action='{{url("/login/validation")}}' method="post" id='login_form'>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <h3>{{config('app.name')}}</h3>
                     <div class="input-group">

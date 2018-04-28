@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.login');
-});
+Route::get('/','LoginController@index');
 
 //注册页面
 Route::get('/register/index','RegisterController@index');
@@ -25,11 +23,14 @@ Route::post('/register/sendEmail','RegisterController@sendEmail');
 //注册发送短信验证码
 Route::post('/register/sendMobile','RegisterController@sendMobile');
 
+//登录时进行验证
 Route::post('/register/verification','RegisterController@verification');
 
+//写入数据库
 Route::post('/register/create','RegisterController@create');
 
-
+//登录进行验证
+Route::post('/login/validation','LoginController@validation');
 
 //查看session
 Route::get('/looksession',function(){
