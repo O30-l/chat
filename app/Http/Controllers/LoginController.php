@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\DeviceDetector;
@@ -41,23 +40,29 @@ class LoginController extends Controller
     public function validation(Request $request)
     {
         $r = User::where(['password'=>$request->password])->get()->toArray();
+        $bool = false;
         foreach($r as $v){
             if(in_array($request->account,$v)){
-                self::login($v);
+                $bool=true;
             }
         }
-        swal(['type'=>'error','title'=>'OMG!','content'=>'账号或者密码错误']);
-        return back();
+        if($bool){
+            return self::login($v);
+        }else{
+            swal(['type'=>'error','title'=>'OMG!','content'=>'账号或者密码错误']);
+            return back();
+        }
     }
 
     static public function login($data)
     {
         $login_info = self::get_client_info();
-        dd(Login_log::create([
+        Login_log::create([
             'user_id'=>$data['id'],
             'login_info'=>json_encode($login_info),
             'login_time'=>time()
-        ])->toArray());
+        ])->toArray();
         $_SESSION['user']=$data;
+        return redirect('/');
     }
 }

@@ -40,3 +40,8 @@ Route::get('/looksession',function(){
 Route::get('/logout',function(){
     unset($_SESSION['user']);
 });
+
+
+//--------------------------------------------------------------------------
+
+// Route::get('/admin','')

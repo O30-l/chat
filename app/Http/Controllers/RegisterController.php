@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -109,8 +108,7 @@ class RegisterController extends Controller
 
         $r = User::create(array_merge(['account'=>$this -> createAccount($accounts)],$request->toArray()));
         if($r){
-            LoginController::login($r -> toArray());
-            return redirect('/');
+            return LoginController::login($r -> toArray());
         }else{
             return back();
         }
