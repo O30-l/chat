@@ -8,6 +8,7 @@ use App\User;
 use Mail;
 class RegisterController extends Controller
 {
+
     public function index()
     {
         if(Auth::check()){

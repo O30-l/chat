@@ -39,6 +39,7 @@ Route::get('/looksession',function(){
 
 Route::get('/logout',function(){
     unset($_SESSION['user']);
+    return back();
 });
 
 

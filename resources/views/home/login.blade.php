@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>{{config('app.name')}} - login</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         @include('layout.cssjs')
         <style media="screen">
         .form{
