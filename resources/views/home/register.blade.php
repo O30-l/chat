@@ -5,7 +5,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
-        @include('layout.cssjs');
+        @include('layout.cssjs')
         <style media="screen">
             .form{
                 background: rgba(255,255,255,0.2);width:400px;margin:100px auto;
