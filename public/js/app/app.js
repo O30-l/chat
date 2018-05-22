@@ -35,7 +35,9 @@ $(function(){
 
     //定义窗口改变设置元素大小函数
     function set_window(){
-        $('#app_body').height($(window).height()-($('#app_search').outerHeight()+$('#app_head').outerHeight()+$('#app_foot').outerHeight())-1);
+        var app_body_h = ($(window).height()-($('#app_search').outerHeight()+$('#app_head').outerHeight()+$('#app_foot').outerHeight())-1)<50?50:$(window).height()-($('#app_search').outerHeight()+$('#app_head').outerHeight()+$('#app_foot').outerHeight())-1;
+
+        $('#app_body').height(app_body_h);
         $('#app').height($(window).height());
     }
 });

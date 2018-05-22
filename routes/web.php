@@ -42,6 +42,10 @@ Route::get('/logout',function(){
     return back();
 });
 
+Route::get('/phpinfo',function(){
+    echo phpinfo();
+});
+
 
 //--------------------------------------------------------------------------
 

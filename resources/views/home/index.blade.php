@@ -51,5 +51,18 @@
                 <div class="app_foot_btn"><i class="far fa-star"></i></div>
             </div>
         </div>
+        <script type="text/javascript">
+            var sk = new WebSocket('ws://192.168.1.194:8282/');
+            sk.onmessage=function(e){
+                console.log(e);
+            }
+            sk.onopen=function(e){
+                console.log(e);
+            }
+            sk.onerror=function(e){
+                console.log(e);
+            }
+            console.log(sk);
+        </script>
     </body>
 </html>
